@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Myshop.Models.Product>
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2>Products</h2>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="@product.Image" class="card-img-top" alt="Product Image">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p class="card-text">Price: @product.Price.ToString("C")</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a asp-action="Detail" asp-route-id="@product.Id" class="btn btn-primary">Details</a>
+                    <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger">Delete</a>
+                    <form method="post" asp-action="AddToCart" asp-route-id="@product.Id">
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>

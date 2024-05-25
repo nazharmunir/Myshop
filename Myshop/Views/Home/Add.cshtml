@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Myshop.Models.Product>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product List</title>
+    <!-- Add any CSS or Bootstrap CDN links here for styling -->
+    <style>
+        /* Add custom styles here if needed */
+        /* Example: .container { } */
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Discount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td><img src="@product.Image" alt="Product Image" style="max-width: 100px;"></td>
+                    <td>@product.Description</td>
+                    <td>@product.Price</td>
+                    <td>@(product.Discount.HasValue ? $"{product.Discount}%" : "N/A")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Add" class="btn btn-primary">Add Product</a>
+    <!-- Include Cart Icon Partial View -->
+    @Html.Partial("_CartIcon")
+</body>
+</html>
