@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f766e" />
+  <meta name="description" content="Electrical Store Manager - sales, purchases, inventory, cashbook, credit ledgers and reports for Pakistani electrical shops." />
+  <title>Electrical Store Manager</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <div id="appShell" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">⚡</div>
+        <div>
+          <div class="brand-title" id="brandTitle">Electrical Store</div>
+          <div class="brand-subtitle">Store Manager</div>
+        </div>
+      </div>
+      <nav id="nav" class="nav"></nav>
+      <div class="sidebar-footer">
+        <div id="backupBadge" class="status-badge">Backup recommended</div>
+        <button class="btn btn-ghost btn-small" data-action="lock-app">🔒 Lock</button>
+      </div>
+    </aside>
+    <div class="content-shell">
+      <header class="topbar">
+        <button id="menuBtn" class="icon-btn mobile-only" aria-label="Open menu">☰</button>
+        <div>
+          <div id="pageTitle" class="page-title">Dashboard</div>
+          <div id="pageSubtitle" class="page-subtitle">Overview of your shop</div>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn btn-outline" data-action="quick-price">🔎 Price lookup</button>
+          <button class="btn btn-primary" data-nav="pos">＋ New sale</button>
+        </div>
+      </header>
+      <main id="main" class="main"></main>
+    </div>
+  </div>
+
+  <div id="startup" class="startup">
+    <div class="startup-card">
+      <div class="startup-logo">⚡</div>
+      <h1>Electrical Store Manager</h1>
+      <p id="startupText">Loading your shop data…</p>
+      <div id="startupControls"></div>
+    </div>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
